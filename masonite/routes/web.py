@@ -9,16 +9,16 @@ from masonite.routes import (
 from .auth import AUTH_ROUTES
 
 ROUTES = [
-    redirect("/", "reviews"),
+    get().view('/', 'welcome').name('home'),
     group(
         [
-            get("/", "ReviewController@index").name("index"),
+            get('/', 'ReviewController@index').name('index'),
             get("/create", "ReviewController@create").name("create"),
-            post("/create", "ReviewController@store").name("store"),
+            post("/", "ReviewController@store").name("store"),
         ],
         prefix="/reviews",
         name="reviews.",
-        middleware=("auth",),
+        # middleware=("auth",),
     ),
 ]
 

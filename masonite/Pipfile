@@ -9,6 +9,8 @@ name = "pypi"
 masonite-cli = "*"
 masonite = "*"
 black = "*"
+pymysql = "*"
+validator-py = "*"
 
 [requires]
 python_version = "3.7"

@@ -7,6 +7,7 @@ from masonite.request import Request
 from masonite.view import View
 from masonite.auth import MustVerifyEmail
 from masonite.managers import MailManager
+from validator import Required, Not, Blank, validate, Length
 
 
 class RegisterController:
@@ -28,14 +29,14 @@ class RegisterController:
         return view.render('auth/register', {'app': request.app().make('Application'), 'Auth': Auth(request)})
 
     def store(self, request: Request, mail_manager: MailManager):
-        """Register the user with the database.
+        ok, errors = self.validate_input(request.all())
 
-        Arguments:
-            request {masonite.request.Request} -- The Masonite request class.
+        if not ok:
+            display = ''
+            for error in errors:
+                request.session.flash(error, '{0} {1} \n\n\n'.format(error.title(), errors[error][0]))
+            return request.redirect('/register')
 
-        Returns:
-            masonite.request.Request -- The Masonite request class.
-        """
         user = auth.AUTH['model'].create(
             name=request.input('name'),
             password=bcrypt_password(request.input('password')),
@@ -48,7 +49,16 @@ class RegisterController:
         # Login the user
         if Auth(request).login(request.input(auth.AUTH['model'].__auth__), request.input('password')):
             # Redirect to the homepage
-            return request.redirect('/home')
+            return request.redirect('/')
 
         # Login failed. Redirect to the register page.
         return request.redirect('/register')
+
+    def validate_input(self, data):
+        rules = {
+            'name': [Required, Not(Blank()),Length(3)],
+            'email': [Required, Not(Blank())],
+            'password': [Required, Not(Blank()),Length(6)],
+        }
+
+        return validate(rules, data)

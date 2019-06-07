@@ -1,6 +1,7 @@
 """Review Model"""
 
 from config.database import Model
+from orator.orm import belongs_to
 
 
 class Review(Model):

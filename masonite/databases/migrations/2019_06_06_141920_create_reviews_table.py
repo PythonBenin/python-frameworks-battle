@@ -12,12 +12,10 @@ class CreateReviewsTable(Migration):
             table.string('company')
             table.string('job')
             table.string('headline')
-            table.stritextng('pros')
+            table.text('pros')
             table.text('cons')
-
             table.integer('user_id').unsigned()
             table.foreign('user_id').references('id').on('users')
-
             table.timestamps()
 
     def down(self):

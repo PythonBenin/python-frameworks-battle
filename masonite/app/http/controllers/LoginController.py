@@ -36,8 +36,9 @@ class LoginController:
             masonite.request.Request -- The Masonite request class.
         """
         if Auth(request).login(request.input('email'), request.input('password')):
-            return request.redirect('/home')
+            return request.redirect('/')
 
+        request.session.flash('login_error', 'These credentials do not match our records.')
         return request.redirect('/login')
 
     def logout(self, request: Request):

@@ -18,7 +18,7 @@ ROUTES = [
         ],
         prefix="/reviews",
         name="reviews.",
-        # middleware=("auth",),
+        middleware=("auth",),
     ),
 ]
 

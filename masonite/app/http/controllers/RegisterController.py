@@ -5,9 +5,10 @@ from masonite.auth import Auth
 from masonite.helpers import password as bcrypt_password
 from masonite.request import Request
 from masonite.view import View
+from app.User import User
 from masonite.auth import MustVerifyEmail
 from masonite.managers import MailManager
-from validator import Required, Not, Blank, validate, Length
+from validator import Required, Not, Blank, validate, Length, In
 
 
 class RegisterController:
@@ -55,9 +56,10 @@ class RegisterController:
         return request.redirect('/register')
 
     def validate_input(self, data):
+        users = User.all()
         rules = {
             'name': [Required, Not(Blank()),Length(3)],
-            'email': [Required, Not(Blank())],
+            'email': [Required, Not(Blank()), Not(In(users.pluck('email')))],
             'password': [Required, Not(Blank()),Length(6)],
         }
 

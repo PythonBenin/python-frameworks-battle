@@ -6,26 +6,27 @@
         <div class="col-md-8">
             <h4>Rate a Company</h4>
             <br>
-            <form action="/questions" method="POST" novalidate>
+            <form action="{{ route('reviews.store') }}" method="POST">
+                {{ csrf_field|safe }}
                 <div class="form-group">
                     <label for="title">Company</label>
-                    <input type="text" class="form-control " id="title" name="title" required>
+                    <input type="text" class="form-control " id="company" name="company" required>
                 </div>
                 <div class="form-group">
                     <label for="title">Your job</label>
-                    <input type="text" class="form-control " id="title" name="title" required>
+                    <input type="text" class="form-control " id="job" name="job" required>
                 </div>
                 <div class="form-group">
                     <label for="title">Review Headline</label>
-                    <input type="text" class="form-control " id="title" name="title" required>
+                    <input type="text" class="form-control " id="headline" name="headline" required>
                 </div>
                 <div class="form-group">
                     <label for="body">Pros</label>
-                    <textarea name="body" id="body" class="form-control " cols="30" rows="5"></textarea>
+                    <textarea name="pros" id="pros" class="form-control " cols="30" rows="5" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="body">Cons</label>
-                    <textarea name="body" id="body" class="form-control " cols="30" rows="5"></textarea>
+                    <textarea name="cons" id="cons" class="form-control " cols="30" rows="5" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </form>

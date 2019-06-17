@@ -1,6 +1,6 @@
 
 <p align="center">
-<img src="https://i.imgur.com/rEXcoMn.png" width="160px"> 
+    <a href="https://docs.google.com/presentation/d/18Mo2WhswjDvgoRVCBL4hwKi4uTg-dusEjra6GcbIRNQ/edit?usp=sharing">Talk slides</a>
 </p>
 
 <p align="center">

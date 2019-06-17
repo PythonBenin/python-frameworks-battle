@@ -3,14 +3,6 @@
     <a href="https://docs.google.com/presentation/d/18Mo2WhswjDvgoRVCBL4hwKi4uTg-dusEjra6GcbIRNQ/edit?usp=sharing">Talk slides</a>
 </p>
 
-<p align="center">
-
-<img src="https://travis-ci.org/MasoniteFramework/masonite.svg?branch=master">
-<img src="https://img.shields.io/badge/python-3.4+-blue.svg" alt="Python Version"> <img src="http://pepy.tech/badge/masonite?1" alt="License">  <img src="https://img.shields.io/github/license/MasoniteFramework/masonite.svg" alt="License"> 
-<img src="https://coveralls.io/repos/github/MasoniteFramework/core/badge.svg?branch=master#" alt="License">
-
-</p>
-
 ## About Masonite
 
 The modern and developer centric Python web framework that strives for an actual batteries included developer tool with a lot of out of the box functionality with an extremely extendable architecture. Masonite is perfect for beginner developers getting into their first web applications as well as experienced devs that need to utilize the full potential of Masonite to get their applications done.
